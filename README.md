@@ -20,7 +20,7 @@ As URLs são armazenadas em um arquivo JSON chamado `site_urls.json`.
 - `interface.py` – Responsável por exibir mensagens, menus e a interface no terminal.
 - `monitor.py` – Manipula as funcionalidades de monitoramento, como adicionar e verificar URLs.
 - `site_urls.json` – Arquivo onde são salvas as URLs monitoradas.
-- `storage.py` – Gerencia a leitura e escrita no arquivo JSON.
+- `persistence.py` – Gerencia a leitura e escrita no arquivo JSON.
 
 ## Requisitos
 
