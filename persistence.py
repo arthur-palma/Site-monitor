@@ -1,22 +1,21 @@
 import json
 import interface as ui
-path = "site_urls.json"
 
-def load_urls():
+def load(file_path):
     try:
-        with open(path,"r") as urls:
-            return json.load(urls)
+        with open(file_path,"r") as file:
+            return json.load(file)
     except FileNotFoundError:
         return []
     except json.JSONDecodeError:
         ui.file_error()
         return []
-    
-def save_urls(urls):
-    with open(path,"w") as file:
-        json.dump(urls,file,indent=4)
 
-def add_url(url):
-    urls = load_urls()
-    urls.append(url)
-    save_urls(urls)
+def save(file_content, path):
+    with open(path,"w") as file:
+        json.dump(file_content,file,indent=4)
+
+def add_content(content, path):
+    file = load(path)
+    file.append(content)
+    save(file, path)
