@@ -7,15 +7,17 @@ import time
 from rich.table import Table
 
 stop_flag = False
+url_path = "site_urls.json"
+email_path = "emails.json"
 
 def add_url():
     ui.add_url_text()
     url = input()
-    urls = persistence.load_urls()
+    urls = persistence.load(url_path)
     if url in urls:
         ui.duplicated_url_error()
     else:
-        persistence.add_url(url)
+        persistence.add_content(url,url_path)
         ui.success_url_added()
     close_function()
 
@@ -24,14 +26,14 @@ def close_function():
     return input()
 
 def list_sites():
-    urls = persistence.load_urls()
+    urls = persistence.load(url_path)
     ui.list_monitored_sites(urls)
     close_function()
 
 def check_sites():
     global stop_flag
     stop_flag = False
-    sites = persistence.load_urls()
+    sites = persistence.load(url_path)
 
     thread = threading.Thread(target=wait_for_enter)
     thread.start()
@@ -69,7 +71,7 @@ def wait_for_enter():
 
 def delete_url():
     confirm_delete = False
-    urls = persistence.load_urls()
+    urls = persistence.load(url_path)
 
     if not urls:
         ui.none_urls_to_remove()
@@ -95,11 +97,22 @@ def delete_url():
 
         if delete == 1:
             url_removida = urls.pop(option - 1)
-            persistence.save_urls(urls)
+            persistence.save(urls,url_path)
             ui.deletion_confirmed_message(url_removida)
             confirm_delete = True
         else:
             ui.cancell_message()
+    close_function()
+
+def add_email():
+    emails = persistence.load(email_path)
+    email = input()
+
+    if not(email in emails):
+        persistence.add_content(email,email_path)
+    else:
+        ui.email_duplicated_error()
+
     close_function()
 
 
