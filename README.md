@@ -42,7 +42,6 @@ Para usar o envio automático de email quando um site falhar 3 vezes consecutiva
 ```python
 EMAIL_FROM = "seu_email@gmail.com"
 EMAIL_PASSWORD = "sua_senha"
-EMAIL_TO = ["destinatario1@gmail.com", "destinatario2@gmail.com"]
 ```
 
 > **Atenção:**  
@@ -62,4 +61,4 @@ python test_server.py
 
 ---
 
-Desenvolvido por Arthur Palma – Projeto em andamento 🚧
+Desenvolvido por Arthur Palma
