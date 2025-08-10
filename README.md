@@ -41,11 +41,8 @@ Para usar o envio automático de email quando um site falhar 3 vezes consecutiva
 
 ```python
 EMAIL_FROM = "seu_email@gmail.com"
-EMAIL_PASSWORD = "sua_senha"
+EMAIL_PASSWORD = "sua_senha_de_app"
 ```
-
-> **Atenção:**  
-> Nunca compartilhe seu arquivo `email_config.py` publicamente. Para evitar que ele seja enviado ao GitHub, inclua o nome dele no seu `.gitignore`.
 
 ## Instruções para Testes
 
