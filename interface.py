@@ -47,13 +47,14 @@ def show_interactive_menu(selected_option,options,title,border_color,numbers_col
 
 def main_menu():
     while True:
-        menu_options = [1,2,3,4,5]
+        menu_options = [1,2,3,4,5,6]
         title = "[bold cyan]Sites monitor[/bold cyan]"
         options = [
         "Add URL for monitoring",
         "List monitored sites",
         "Check website status",
         "Remove URL",
+        "Add E-mail",
         "Exit"
         ]
         border_style = "bright_blue"
@@ -103,3 +104,12 @@ def confirm_menu():
 def exit_message():
     console.print("\n\n[bold green]Thanks for using Sites Monitor![/bold green]")
     console.print("Goodbye and have a great day! 👋\n\n")
+
+def email_duplicated_error():
+    console.print("[bold red]This email is already registred.[/bold red]")
+
+def add_email_text():
+    console.print("[bold white]Please enter the email you want to add to receive notifications:[/bold white]")
+
+def invalid_email_error():
+    console.print("[bold red]This is not a valid email.[/bold red]")

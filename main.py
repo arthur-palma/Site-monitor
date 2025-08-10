@@ -16,6 +16,8 @@ def main():
                 monitor.check_sites()
             case 4:
                 monitor.delete_url()
+            case 5:
+                monitor.add_email()
             case _:
                 ui.exit_message()
                 break
