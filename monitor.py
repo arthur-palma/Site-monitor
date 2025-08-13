@@ -56,6 +56,7 @@ def check_sites():
             live.update(build_table(sites))
 
 def build_table(sites):
+        emails = persistence.load(email_path)
         global failure_counts
         table = Table(title="Site Monitor")
         table.add_column("Site", style="cyan", no_wrap=True)
@@ -72,7 +73,7 @@ def build_table(sites):
 
             status_text = "[green]Online[/green]" if status else "[red]Offline[/red]"
             msg = "Ok" if status else "[red]Failed to Connect[/red]"
-            if(failure_counts[site] >= 3):
+            if(failure_counts[site] >= 3 and emails):
                 send_offline_site_email(site)
 
             table.add_row(site, status_text, msg)
